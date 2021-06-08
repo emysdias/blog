@@ -1,9 +1,6 @@
-class Article < ApplicationRecord
+class Comment < ApplicationRecord
   include Visible
-  has_many :comments
-
-  validates :title, presence: true
-  validates :text, presence: true, length: { minimum: 10 }
+  belongs_to :article
 
   VALID_STATUSES = ['public', 'private', 'archived']
 
